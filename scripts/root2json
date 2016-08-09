@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import argparse
+import ROOT
+
+
+def root2json(key, file):
+    root = ROOT.TFile.Open(file, "READ")
+    if not root:
+        return None
+    obj = root.FindObjectAny(key)
+    print(str(ROOT.TBufferJSON.ConvertToJSON(obj)))
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description='Produce json description of the object from a root file')
+    parser.add_argument(
+        '-k', '--key', help='The key of the object in the root file')
+    parser.add_argument('file', help='Root file')
+
+    args = parser.parse_args()
+
+    root2json(args.key, args.file)
+
+if __name__ == '__main__':
+    main()

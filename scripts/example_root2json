@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+./scripts/root2json --key c_1 selectedresults.root > c_1.jso

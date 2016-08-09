@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+server ()
+{
+    local port="${1:-8000}";
+    open "http://localhost:${port}/";
+    python -c 'import SimpleHTTPServer;
+map = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;
+map[""] = "text/plain";
+for key, value in map.items():
+	map[key] = value + ";charset=UTF-8";
+SimpleHTTPServer.test();' "$port"
+}
+
+server
