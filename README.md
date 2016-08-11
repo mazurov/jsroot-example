@@ -36,4 +36,9 @@ function processJSON(json){
     console.log(new_obj);
 
 }
-```` 
+```
+
+
+# Where to start?
+
+Start hacking `main.js`. Could you simplify the way of adding axises and legends to the plot?
