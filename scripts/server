@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ ! -d "jsroot" ]
+then
+ ./scripts/getjsroot
+fi
+
 server ()
 {
     local port="${1:-8000}";
